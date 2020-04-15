@@ -1,4 +1,4 @@
-name: skoolio
+name: growskool
 description: A new Flutter application.
 
 version: 1.0.0+1
@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  url_launcher: ^5.4.2
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
@@ -20,12 +21,17 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - assets/images/ben-white-small.jpg
+
   fonts:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Regular.ttf
         - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 100
         - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
     - family: Lobster
       fonts:
         - asset: assets/fonts/Lobster-Regular.ttf
