@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:growskool/utils/styles.dart';
+import 'package:growskool/utils/unsplash_credits.dart';
 import 'package:growskool/widgets/navigation_bar.dart';
 import 'package:growskool/widgets/unsplash_badge.dart';
 
@@ -19,7 +21,8 @@ class StartScreen extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("images/ben-white-small.jpg"),
+                        image: AssetImage(
+                            UnplashCredits.photo(UnplashCredits.mattRagland)),
                         colorFilter: ColorFilter.mode(
                           Colors.white,
                           BlendMode.colorBurn,
@@ -38,35 +41,34 @@ class StartScreen extends StatelessWidget {
                           Text(
                             ' Growskool ',
                             style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontSize: 135,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.normal,
-                                fontFamily: 'Lobster'
+                              decoration: TextDecoration.none,
+                              fontSize: 135,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: 'Lobster',
+                              shadows: [
+                                BoxShadow(
+                                  offset: Offset(0, 0),
+                                  color: Colors.white,
+                                  blurRadius: 20.0,
+                                  spreadRadius: 20.0,
+                                )
+                              ],
                             ),
                           ),
                           Text(
                             'Wir machen weiter',
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w600
-                            ),
+                            style: kMidBoldLetters,
                           ),
                           SizedBox(height: 8,),
                           Text(
                             'Alle Zusammen',
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w600
-                            ),
+                            style: kMidBoldLetters,
                           ),
                           SizedBox(height: 8,),
                           Text(
                             '#BleibZuHause',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600
-                            ),
+                            style: kSmallBoldLetters,
                           ),
                         ],
                       ),
@@ -122,8 +124,9 @@ class StartScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         UnsplashBadge(
-                          url: 'https://unsplash.com/@benwhitephotography?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge',
-                          photographer: 'Ben White',
+                          url: UnplashCredits.url(UnplashCredits.mattRagland),
+                          photographer: UnplashCredits.name(
+                              UnplashCredits.mattRagland),
                         ),
                         SizedBox(height: 15,),
                       ],

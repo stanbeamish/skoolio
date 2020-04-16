@@ -39,9 +39,9 @@ class UnsplashBadge extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'images/unsplash.png',
-              width: 22,
+            Image(
+              image: AssetImage('assets/images/unsplash.png'),
+              width: 24,
             ),
             SizedBox(
               width: 6,

@@ -22,7 +22,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/ben-white-small.jpg
+    - assets/images/
 
   fonts:
     - family: Montserrat
