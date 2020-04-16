@@ -22,18 +22,7 @@ class UnsplashBadge extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: BoxDecoration(
-          color: Colors.black45,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 5.0,
-              offset: Offset(0, 4),
-            )
-          ],
-          border: Border.all(
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(10),
+          color: Color(0xFF000000).withOpacity(0.6),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

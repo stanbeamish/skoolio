@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:growskool/widgets/topic_button.dart';
 
 class NavigationBar extends StatelessWidget {
-  const NavigationBar({
-    Key key,
-  }) : super(key: key);
+  final BoxConstraints constraints;
+
+  const NavigationBar(this.constraints);
 
   @override
   Widget build(BuildContext context) {
@@ -19,43 +19,54 @@ class NavigationBar extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            TopicButton(
-              onPressed: () {},
-              caption: 'Startseite',
-              fontSize: 20,
-            ),
-            Row(
-              children: <Widget>[
-                TopicButton(
-                  onPressed: () {},
-                  caption: 'Deutsch',
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                TopicButton(
-                  onPressed: () {},
-                  caption: 'Mathe',
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                TopicButton(
-                  onPressed: () {},
-                  caption: 'Sachkunde',
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-              ],
-            ),
-          ],
-        ),
+        child: _buildNav(constraints),
       ),
     );
+  }
+
+  Widget _buildNav(BoxConstraints constraints) {
+    if (constraints.maxWidth > 800) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          TopicButton(
+            onPressed: () {},
+            caption: 'Startseite',
+            fontSize: 20,
+          ),
+          Row(
+            children: <Widget>[
+              TopicButton(
+                onPressed: () {},
+                caption: 'Deutsch',
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              TopicButton(
+                onPressed: () {},
+                caption: 'Mathe',
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              TopicButton(
+                onPressed: () {},
+                caption: 'Sachkunde',
+              ),
+              SizedBox(
+                width: 20,
+              ),
+            ],
+          ),
+        ],
+      );
+    } else {
+      return Container(
+        height: 40,
+        color: Colors.lightBlue[700],
+      );
+    }
   }
 }
