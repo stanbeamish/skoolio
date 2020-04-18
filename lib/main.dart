@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Montserrat',
         ),
       ),
-      home: StartScreen(),
+      routes: {
+        StartScreen.id: (context) => StartScreen(),
+      },
+      initialRoute: StartScreen.id,
     );
   }
 }

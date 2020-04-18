@@ -1,7 +1,6 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class UnsplashBadge extends StatelessWidget {
   final String url;
@@ -13,11 +12,22 @@ class UnsplashBadge extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  void _lauchUrl() async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Fluttertoast.showToast(
+        msg: 'Die Seite $url konnte nicht aufgerufen werden.',
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        html.window.open(url, 'unsplash');
+        _lauchUrl();
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),

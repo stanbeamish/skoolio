@@ -11,6 +11,7 @@ class TopicButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlatButton(
       onPressed: onPressed,
+      hoverColor: Colors.lightBlue[400],
       child: Text(
         caption,
         style: TextStyle(

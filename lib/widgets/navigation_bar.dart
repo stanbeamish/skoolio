@@ -14,7 +14,10 @@ class NavigationBar extends StatelessWidget {
         color: Colors.lightBlue[700],
         boxShadow: [
           BoxShadow(
-              color: Colors.black, offset: Offset(0, 5), blurRadius: 10.0),
+            color: Colors.black,
+            offset: Offset(0, 5),
+            blurRadius: 10.0,
+          ),
         ],
       ),
       child: Padding(
@@ -41,22 +44,13 @@ class NavigationBar extends StatelessWidget {
                 onPressed: () {},
                 caption: 'Deutsch',
               ),
-              SizedBox(
-                width: 20,
-              ),
               TopicButton(
                 onPressed: () {},
                 caption: 'Mathe',
               ),
-              SizedBox(
-                width: 20,
-              ),
               TopicButton(
                 onPressed: () {},
                 caption: 'Sachkunde',
-              ),
-              SizedBox(
-                width: 20,
               ),
             ],
           ),
