@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:growskool/widgets/topic_button.dart';
 
 class NavigationBar extends StatelessWidget {
+  final String pageTitle;
   final BoxConstraints constraints;
 
-  const NavigationBar(this.constraints);
+  const NavigationBar({@required this.constraints, @required this.pageTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -33,23 +34,29 @@ class NavigationBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          TopicButton(
-            onPressed: () {},
-            caption: 'Startseite',
-            fontSize: 20,
+          Text(
+            pageTitle,
+            style: TextStyle(
+                fontSize: 25, fontFamily: 'Lobster', color: Colors.white),
           ),
           Row(
             children: <Widget>[
               TopicButton(
-                onPressed: () {},
+                onPressed: () {
+                  //TODO: create the Deutsch page
+                },
                 caption: 'Deutsch',
               ),
               TopicButton(
-                onPressed: () {},
+                onPressed: () {
+                  //TODO: create the Mathe page
+                },
                 caption: 'Mathe',
               ),
               TopicButton(
-                onPressed: () {},
+                onPressed: () {
+                  //TODO: create the Sachkunde page
+                },
                 caption: 'Sachkunde',
               ),
             ],
@@ -58,8 +65,26 @@ class NavigationBar extends StatelessWidget {
       );
     } else {
       return Container(
+        width: double.infinity,
         height: 40,
         color: Colors.lightBlue[700],
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              pageTitle,
+              style: TextStyle(
+                  fontSize: 25, fontFamily: 'Lobster', color: Colors.white),
+            ),
+            FlatButton(
+              onPressed: () {
+                //TODO: create the dropdown menu
+              },
+              child: Icon(Icons.menu, color: Colors.white, size: 20,),
+            ),
+          ],
+        ),
       );
     }
   }
