@@ -28,6 +28,9 @@ flutter:
     - assets/data/articles.json
 
   fonts:
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Regular.ttf
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Regular.ttf

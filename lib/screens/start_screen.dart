@@ -27,28 +27,30 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return _getPage(_currentPage, constraints);
-        },
-      ),
-      bottomNavigationBar: FancyBottomNavigation(
-        initialSelection: _currentPage,
-        tabs: [
-          TabData(
-            iconData: Icons.home,
-            title: 'Start',
-          ),
-          TabData(iconData: Icons.info_outline, title: 'Info'),
-          TabData(iconData: Icons.bubble_chart, title: 'Lernen'),
-        ],
-        onTabChangedListener: (position) {
-          setState(() {
-            _currentPage = position;
-          });
-        },
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            return _getPage(_currentPage, constraints);
+          },
+        ),
+        bottomNavigationBar: FancyBottomNavigation(
+          initialSelection: _currentPage,
+          tabs: [
+            TabData(
+              iconData: Icons.home,
+              title: 'Start',
+            ),
+            TabData(iconData: Icons.chat, title: 'Blog'),
+            TabData(iconData: Icons.bubble_chart, title: 'Lernen'),
+          ],
+          onTabChangedListener: (position) {
+            setState(() {
+              _currentPage = position;
+            });
+          },
+        ),
       ),
     );
   }

@@ -10,19 +10,18 @@ class ClaimBadge extends StatelessWidget {
     double _fontSize = constraints.maxWidth > 800 ? 25.0 : 12.0;
     double _iconSize = constraints.maxWidth > 800 ? 45.0 : 20.0;
     double _sizeBoxHeight = constraints.maxWidth > 800 ? 20.0 : 12.0;
-    double _claimButtonHeight = constraints.maxHeight > 800 ? 150.0 : 90;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: _claimButtonHeight,
           child: RaisedButton(
             onPressed: () {},
             color: Colors.lightBlue[900],
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Icon(

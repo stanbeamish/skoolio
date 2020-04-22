@@ -20,9 +20,18 @@ class SingleArticle extends StatelessWidget {
             ),
             title: Text(
               article.title,
-              style: TextStyle(fontSize: 25, color: Colors.black),
+              style: TextStyle(
+                fontSize: constraints.maxWidth > 800 ? 38 : 24,
+                fontFamily: 'Lobster',
+                color: Colors.black,
+              ),
             ),
-            subtitle: Text(article.subtitle),
+            subtitle: Text(
+              article.subtitle,
+              style: TextStyle(
+                fontSize: constraints.maxWidth > 800 ? 20 : 14,
+              ),
+            ),
           ),
           constraints.maxWidth > 800
               ? Padding(
@@ -63,11 +72,13 @@ class SingleArticle extends StatelessWidget {
                       ),
                       Text(
                         article.text,
-                        style: TextStyle(fontSize: 18, color: Colors.black),
-                      )
+                        style: TextStyle(
+                            fontSize: constraints.maxWidth > 800 ? 18 : 14,
+                            color: Colors.black),
+                      ),
                     ],
                   ),
-                )
+          ),
         ],
       ),
     );
