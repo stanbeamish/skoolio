@@ -43,7 +43,7 @@ class _StartScreenState extends State<StartScreen> {
               title: 'Start',
             ),
             TabData(iconData: Icons.chat, title: 'Blog'),
-            TabData(iconData: Icons.bubble_chart, title: 'Lernen'),
+            TabData(iconData: Icons.school, title: 'Lernen'),
           ],
           onTabChangedListener: (position) {
             setState(() {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:growskool/widgets/topic_button.dart';
 
 class NavigationBar extends StatelessWidget {
   final String pageTitle;
@@ -41,6 +40,7 @@ class NavigationBar extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
+              /*
               TopicButton(
                 onPressed: () {
                   //TODO: create the Deutsch page
@@ -59,6 +59,7 @@ class NavigationBar extends StatelessWidget {
                 },
                 caption: 'Sachkunde',
               ),
+              */
             ],
           ),
         ],

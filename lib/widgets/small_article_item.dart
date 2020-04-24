@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:growskool/models/article.dart';
+import 'package:growskool/screens/pages/full_article_page.dart';
+import 'package:growskool/widgets/article_topic_badge.dart';
 
 class SmallArticleItem extends StatelessWidget {
   final BoxConstraints constraints;
@@ -57,7 +59,10 @@ class SmallArticleItem extends StatelessWidget {
                   SizedBox(
                     height: 12,
                   ),
-                  _createTopicBadge(article.topic),
+                  ArticleTopicBadge(
+                    constraints: constraints,
+                    topic: article.topic,
+                  ),
                   SizedBox(
                     height: 26,
                   ),
@@ -94,7 +99,13 @@ class SmallArticleItem extends StatelessWidget {
                       color: Colors.lightBlue[700],
                     ),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>
+                              FullArticlePage(
+                                article: article, constraints: constraints,),
+                        ));
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -129,47 +140,4 @@ class SmallArticleItem extends StatelessWidget {
     );
   }
 
-  Widget _createTopicBadge(String topic) {
-    Widget _returnWidget;
-    constraints.maxWidth > 400
-        ? _returnWidget = Container(
-            decoration: BoxDecoration(
-              color: _getTopicBatchColor(topic, true),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
-              child: Text(topic,
-                  style: TextStyle(color: _getTopicBatchColor(topic, false))),
-            ),
-          )
-        : _returnWidget = SizedBox(
-            width: 0,
-          );
-    return _returnWidget;
-  }
-
-  Color _getTopicBatchColor(String topic, bool withOpacity) {
-    switch (topic) {
-      case "Lernen Allgemein":
-        {
-          if (withOpacity) return Color(0xFF02B810).withOpacity(0.1);
-          return Color(0xFF02B810);
-        }
-        break;
-      case "Lernhilfen":
-        {
-          if (withOpacity) return Color(0xFF33C4FF).withOpacity(0.1);
-          return Color(0xFF33C4FF);
-        }
-        break;
-      default:
-        {
-          if (withOpacity) return Color(0xFF757374).withOpacity(0.1);
-          return Color(0xFF757374);
-        }
-        break;
-    }
-  }
 }

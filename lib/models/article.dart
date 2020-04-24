@@ -6,9 +6,10 @@ class Article {
   final String text;
   final String topic;
   final String date;
+  final String imageTitle;
 
   Article(
-      {this.author, this.image, this.title, this.subtitle, this.text, this.topic, this.date});
+      {this.author, this.image, this.title, this.subtitle, this.text, this.topic, this.date, this.imageTitle});
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return new Article(
@@ -18,6 +19,7 @@ class Article {
         subtitle: json['subtitle'] as String,
         text: json['text'] as String,
         topic: json['topic'] as String,
-        date: json['date'] as String);
+        date: json['date'] as String,
+        imageTitle: json['imageTitle'] as String);
   }
 }
